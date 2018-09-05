@@ -14,9 +14,10 @@
 	.text
 	.align	2
 	.global	fft_16_arm9e
-	.syntax unified
+	@.syntax unified
 	@.thumb
 	@.thumb_func
+
 y	.req	r0
 c	.req	r0
 x	.req	r1	
@@ -73,8 +74,8 @@ t1	.req	r14
 	@ (x2,x3) = (x2+x3, x2-x3)
 	add	x2_r,	x2_r,	x3_r
 	add	x2_i,	x2_i,	x3_i
-	sub	x3_r,	x2_r,	x3_r,	LSR#1
-	sub	x3_i,	x2_i,	x3_i,	LSR#1
+	sub	x3_r,	x2_r,	x3_r,	LSL#1
+	sub	x3_i,	x2_i,	x3_i,	LSL#1
 	@ (x0,x1) = (x0+(x1 >> s), x0-(x1 >> s))/4
 	mov	x0_r,	x0_r,	ASR#2
 	mov	x0_i,	x0_i,	ASR#2
