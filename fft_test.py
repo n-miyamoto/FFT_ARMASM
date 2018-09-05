@@ -2,12 +2,12 @@
 import numpy as np
 
 if __name__ == "__main__":
-    N=4
-    num=1
+    N=16
     f = []
     for i in range(N):
-        f.append(0.25)
+        f.append(float(i)/N)
 
-    F = np.fft.fft(f)/4
+    F = np.fft.fft(f)/N
+    print(f)
     print(F)
 
